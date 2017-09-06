@@ -9,9 +9,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.Date;
 
-/**
- * Created by zezhong.shang on 16-4-7.
- */
 public class DzCrawler {
     //ÇëÇóµÄurl
     public static void main(String args[]) throws IOException {
