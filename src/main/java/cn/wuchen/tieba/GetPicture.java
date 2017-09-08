@@ -18,8 +18,8 @@ import java.net.URL;
 public class GetPicture {
 
     private static int count = 0;
-    public void saveToFile(String destUrl){
-        System.out.println("--------------------------------------------"+destUrl);
+
+    public void saveToFile(String destUrl) {
         FileOutputStream fos = null;
         BufferedInputStream bis = null;
         HttpURLConnection httpUrl = null;
@@ -29,57 +29,55 @@ public class GetPicture {
 
         try {
             url = new URL(destUrl);
-            httpUrl = (HttpURLConnection) url.openConnection();
-            httpUrl.connect();
-            bis = new BufferedInputStream(httpUrl.getInputStream());
-            String imgName = destUrl.substring(7,destUrl.lastIndexOf("."));
-            System.out.println(imgName);
-            File dir = new File("E:\\img");
-            if (!dir.exists()){
-                dir.mkdirs();
-            }
-
-            File file = new File("E:\\img\\haha"+count+".jpg");
-            System.out.println(file.getAbsolutePath());
-            fos = new FileOutputStream(file);
-            while ((size = bis.read(buf)) != -1){
-                fos.write(buf,0,size);
-            }
-            fos.flush();
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            count++;
-            if (fos != null && bis != null && httpUrl != null) {
-                try {
-                    fos.close();
-                    bis.close();
-                    httpUrl.disconnect();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                httpUrl = (HttpURLConnection) url.openConnection();
+                httpUrl.connect();
+                bis = new BufferedInputStream(httpUrl.getInputStream());
+                String imgName = destUrl.substring(7, destUrl.lastIndexOf("."));
+                File dir = new File("E:\\img");
+                if (!dir.exists()) {
+                    dir.mkdirs();
                 }
+
+                File file = new File("E:\\img\\+count+.jpg");
+                fos = new FileOutputStream(file);
+                while ((size = bis.read(buf)) != -1) {
+                    fos.write(buf, 0, size);
+                }
+                fos.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                count++;
+                if (fos != null && bis != null && httpUrl != null) {
+                    try {
+                        fos.close();
+                        bis.close();
+                        httpUrl.disconnect();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
             }
         }
     }
 
-    private void getHtmlElements(String url){
+    private void getHtmlElements(String url) {
         try {
             Document doc = Jsoup.connect(url).get();
 
             //获取后缀名为JPG的IMG元素
-            Elements pngs = doc.select("img[src=^https]");
-            for (Element element : pngs){
+            Elements pngs = doc.select("img[src$=.jpg]");
+            for (Element element : pngs) {
                 saveToFile(element.attr("src"));
             }
 //            System.out.println(pngs);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         GetPicture pic = new GetPicture();
-        pic.getHtmlElements("https://www.deviantart.com/");
+        pic.getHtmlElements("http://games.sina.com.cn/z/bns/2013-06-21/1034490444.shtml");
     }
 
 }

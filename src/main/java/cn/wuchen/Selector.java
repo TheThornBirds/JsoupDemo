@@ -19,6 +19,12 @@ public class Selector {
         }
     }
 
+    public static void forFoo2(Elements e){
+        for (Element element : e){
+            System.out.println(element.text());
+        }
+    }
+
     public static void main(String[] args){
         Document doc;
         try {
