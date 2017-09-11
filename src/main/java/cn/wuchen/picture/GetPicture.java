@@ -1,4 +1,4 @@
-package cn.wuchen.tieba;
+package cn.wuchen.picture;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -38,7 +38,7 @@ public class GetPicture {
                     dir.mkdirs();
                 }
 
-                File file = new File("E:\\img\\+count+.jpg");
+                File file = new File("E:\\img\\+count+.swf");
                 fos = new FileOutputStream(file);
                 while ((size = bis.read(buf)) != -1) {
                     fos.write(buf, 0, size);
@@ -65,8 +65,12 @@ public class GetPicture {
             Document doc = Jsoup.connect(url).get();
 
             //获取后缀名为JPG的IMG元素
-            Elements pngs = doc.select("img[src$=.jpg]");
+            Elements pngs = doc.select("embed[src$=.swf]");
+
             for (Element element : pngs) {
+
+                String ele =  element.attr("src");
+                System.out.println(ele);
                 saveToFile(element.attr("src"));
             }
 //            System.out.println(pngs);
@@ -77,7 +81,7 @@ public class GetPicture {
 
     public static void main(String[] args) {
         GetPicture pic = new GetPicture();
-        pic.getHtmlElements("http://games.sina.com.cn/z/bns/2013-06-21/1034490444.shtml");
+        pic.getHtmlElements("http://www.java1234.com/a/yuanchuang/jsoup/2017/0211/7539.html");
     }
 
 }
