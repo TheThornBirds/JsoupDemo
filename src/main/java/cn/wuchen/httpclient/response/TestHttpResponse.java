@@ -1,4 +1,4 @@
-package cn.wuchen.httpclient;
+package cn.wuchen.httpclient.response;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
