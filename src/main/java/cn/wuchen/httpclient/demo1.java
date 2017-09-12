@@ -36,18 +36,4 @@ public class demo1 {
         response.close();
     }
 
-//        public static void main(String[] args) throws ClientProtocolException, IOException, URISyntaxException {
-//            CloseableHttpClient httpclient = HttpClients.createDefault(); // 创建httpclient实例
-//            URI uri = new URIBuilder()
-//                    .setScheme("http")  // 设置scheme
-//                    .setHost("download.csdn.net") // 设置host
-//                    .setPath("/search")  // 设置path
-//                    .setParameter("q", "java开发")  // 设置参数
-//                    .build();
-//            HttpGet httpget=new HttpGet(uri);
-//            CloseableHttpResponse response = httpclient.execute(httpget); // 执行get请求
-//            HttpEntity entity=response.getEntity(); // 获取返回实体
-//            System.out.println("网页内容："+EntityUtils.toString(entity, "utf-8")); // 指定编码打印网页内容
-//            response.close(); // 关闭流和释放系统资源
-//        }
 }
