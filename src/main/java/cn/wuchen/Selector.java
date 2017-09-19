@@ -29,11 +29,11 @@ public class Selector {
         Document doc;
         try {
             //获取文档
-            doc = Jsoup.connect("http://wclxy.com/").get();
+            doc = Jsoup.connect("http://www.tuicool.com/").get();
 
             //获取单一元素
             //根据ID选择的选择器<div id="content"></div>
-            Element content = doc.getElementById("content");
+            Element content = doc.getElementById("header");
 //            System.out.println(content);
 
             /******以下返回值都是Elements集合*******/
@@ -48,7 +48,7 @@ public class Selector {
 
             //获取所有元素
             Elements allElements = doc.getAllElements();
-//            Selector.forFoo(allElements);
+            Selector.forFoo(allElements);
 
             //根据属性获取元素<div class=...> <span class=...>
             Elements attribute = doc.getElementsByAttribute("href");

@@ -21,14 +21,15 @@ public class demo1 {
         //创建HTTPclient实例
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
-        URI uri = new URIBuilder()
-                .setScheme("http") //设置scheme
-                .setHost("download.csdn.net") //设置host
-                .setPath("/search") //设置path
-                .setParameter("q", "java开发") //设置参数
-                .build();
+//        URI uri = new URIBuilder()
+//                .setScheme("http") //设置scheme
+//                .setHost("download.csdn.net") //设置host
+//                .setPath("/search") //设置path
+//                .setParameter("q", "java开发") //设置参数
+//                .build();
         //创建get请求实例
-        HttpGet get = new HttpGet(uri);
+        HttpGet get = new HttpGet("http://www.tuicool.com/");
+        get.setHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
 
         CloseableHttpResponse response = httpClient.execute(get);
         HttpEntity entity = response.getEntity();
