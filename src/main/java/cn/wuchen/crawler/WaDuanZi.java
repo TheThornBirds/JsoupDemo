@@ -1,6 +1,5 @@
 package cn.wuchen.crawler;
 
-import cn.wuchen.Selector;
 import cn.wuchen.module.Article;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

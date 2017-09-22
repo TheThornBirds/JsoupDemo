@@ -28,7 +28,7 @@ public class demo1 {
 //                .setParameter("q", "java开发") //设置参数
 //                .build();
         //创建get请求实例
-        HttpGet get = new HttpGet("http://www.tuicool.com/");
+        HttpGet get = new HttpGet("https://pan.baidu.com/share/link?uk=589182554&shareid=3388050432#list/path=%2F");
         get.setHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
 
         CloseableHttpResponse response = httpClient.execute(get);

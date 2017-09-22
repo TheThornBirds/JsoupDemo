@@ -1,4 +1,4 @@
-package cn.wuchen.wangyi;
+package cn.wuchen.picture;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,4 +1,5 @@
-package cn.wuchen;
+package cn.wuchen.util;
+
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
